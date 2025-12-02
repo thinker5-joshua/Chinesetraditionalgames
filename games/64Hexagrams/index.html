@@ -60,6 +60,40 @@
                 </div>
             </div>
         </div>
+        
+        <!-- 去学卦按钮 -->
+        <div class="learn-button-container">
+            <button id="go-learn" class="learn-button">去学卦</button>
+        </div>
+        
+        <!-- 卦列表页 -->
+        <div id="learn-page" class="page learn-page" style="display: none;">
+            <div class="page-header">
+                <h2>64卦学习</h2>
+                <button id="back-to-game" class="back-button">返回游戏</button>
+            </div>
+            
+            <!-- 分组选择 -->
+            <div class="group-selector">
+                <label>分组方式：</label>
+                <button id="order-group" class="group-button active">顺序</button>
+                <button id="eight-house-group" class="group-button">八宫</button>
+            </div>
+            
+            <!-- 卦列表 -->
+            <div class="hexagram-list-container">
+                <div id="hexagram-list" class="hexagram-list">
+                    <!-- 卦项将动态生成 -->
+                </div>
+            </div>
+            
+            <!-- 翻页控件 -->
+            <div class="pagination">
+                <button id="prev-group" class="page-button">上一组</button>
+                <span id="group-info" class="group-info">第1组 / 共8组</span>
+                <button id="next-group" class="page-button">下一组</button>
+            </div>
+        </div>
     </div>
     
     <script src="script.js"></script>

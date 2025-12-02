@@ -630,3 +630,251 @@ header p {
     text-align: center;
     letter-spacing: 5px;
 }
+
+/* 去学卦按钮样式 */
+.learn-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.learn-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: "SimSun", "STSong", serif;
+}
+
+.learn-button:hover {
+    background-color: #cd853f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 学习页面样式 */
+.learn-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #b8a57e;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #b8a57e;
+}
+
+.page-header h2 {
+    font-size: 2rem;
+    color: #8b4513;
+    margin: 0;
+    font-weight: bold;
+}
+
+.back-button {
+    background-color: #b8a57e;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-family: "SimSun", "STSong", serif;
+}
+
+.back-button:hover {
+    background-color: #8b4513;
+    transform: translateY(-1px);
+}
+
+/* 分组选择样式 */
+.group-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: rgba(211, 199, 167, 0.2);
+    border-radius: 8px;
+}
+
+.group-selector label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #6d4c41;
+    margin-right: 20px;
+}
+
+.group-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: 2px solid #b8a57e;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #6d4c41;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "SimSun", "STSong", serif;
+}
+
+.group-button:hover {
+    background-color: rgba(211, 199, 167, 0.3);
+    transform: translateY(-1px);
+}
+
+.group-button.active {
+    background-color: #8b4513;
+    color: white;
+    border-color: #8b4513;
+}
+
+/* 卦列表样式 */
+.hexagram-list-container {
+    margin-bottom: 30px;
+}
+
+.hexagram-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.hexagram-item {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #b8a57e;
+    border-radius: 12px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hexagram-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-color: #8b4513;
+}
+
+.hexagram-item-symbol {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-family: "SimSun", monospace;
+    line-height: 1.1;
+    letter-spacing: 5px;
+}
+
+.hexagram-item-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 8px;
+}
+
+.hexagram-item-pinyin {
+    font-size: 0.9rem;
+    color: #6d4c41;
+    font-family: Arial, sans-serif;
+}
+
+/* 分页控件样式 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #b8a57e;
+}
+
+.page-button {
+    background-color: #b8a57e;
+    border: none;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-family: "SimSun", "STSong", serif;
+    min-width: 100px;
+}
+
+.page-button:hover {
+    background-color: #8b4513;
+    transform: translateY(-1px);
+}
+
+.page-button:disabled {
+    background-color: #d3ccc1;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.group-info {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #6d4c41;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .learn-page {
+        padding: 15px;
+    }
+    
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .group-selector {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .hexagram-list {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 15px;
+    }
+    
+    .hexagram-item {
+        padding: 15px;
+    }
+    
+    .hexagram-item-symbol {
+        font-size: 2rem;
+    }
+    
+    .pagination {
+        gap: 15px;
+    }
+    
+    .page-button {
+        padding: 10px 16px;
+        min-width: 80px;
+        font-size: 0.9rem;
+    }
+}

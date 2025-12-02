@@ -1430,3 +1430,161 @@ window.addEventListener('keydown', (event) => {
         closeDetailAndContinueGame();
     }
 });
+
+// 八宫卦分组数据
+const eightHouseGroups = [
+    { name: "乾宫", hexagrams: [1, 33, 27, 24, 19, 16, 13, 9] },
+    { name: "兑宫", hexagrams: [58, 41, 62, 59, 10, 38, 60, 56] },
+    { name: "离宫", hexagrams: [30, 13, 22, 37, 55, 35, 63, 20] },
+    { name: "震宫", hexagrams: [51, 24, 20, 53, 62, 3, 11, 17] },
+    { name: "巽宫", hexagrams: [57, 44, 28, 50, 31, 32, 14, 6] },
+    { name: "坎宫", hexagrams: [29, 64, 40, 47, 5, 48, 27, 4] },
+    { name: "艮宫", hexagrams: [52, 26, 21, 39, 56, 36, 61, 15] },
+    { name: "坤宫", hexagrams: [2, 16, 8, 23, 7, 12, 18, 25] }
+];
+
+// 学习页面相关变量
+let currentGroupType = 'order'; // 'order' 或 'eight-house'
+let currentGroupIndex = 0;
+
+// DOM元素 - 学习页面
+const goLearnButton = document.getElementById('go-learn');
+const learnPage = document.getElementById('learn-page');
+const backToGameButton = document.getElementById('back-to-game');
+const orderGroupButton = document.getElementById('order-group');
+const eightHouseGroupButton = document.getElementById('eight-house-group');
+const hexagramList = document.getElementById('hexagram-list');
+const groupInfo = document.getElementById('group-info');
+const prevGroupButton = document.getElementById('prev-group');
+const nextGroupButton = document.getElementById('next-group');
+
+// 初始化学习页面功能
+function initLearnPage() {
+    renderHexagramList();
+    setupGroupButtons();
+    setupPagination();
+}
+
+// 渲染卦列表
+function renderHexagramList() {
+    const hexagramList = document.getElementById('hexagram-list');
+    const groupInfo = document.getElementById('group-info');
+    
+    // 根据分组类型获取当前组的卦
+    let currentGroupHexagrams;
+    if (currentGroupType === 'order') {
+        // 顺序分组
+        const startIndex = currentGroupIndex * 8;
+        currentGroupHexagrams = hexagramsData.slice(startIndex, startIndex + 8);
+    } else {
+        // 八宫分组
+        const group = eightHouseGroups[currentGroupIndex];
+        currentGroupHexagrams = group.hexagrams.map(id => 
+            hexagramsData.find(h => h.id === id)
+        ).filter(Boolean);
+    }
+    
+    // 渲染卦列表
+    hexagramList.innerHTML = currentGroupHexagrams.map(hexagram => `
+        <div class="hexagram-item" data-id="${hexagram.id}">
+            <div class="hexagram-item-symbol">${hexagram.symbol}</div>
+            <div class="hexagram-item-name">${hexagram.name}</div>
+            <div class="hexagram-item-pinyin">${hexagram.pinyin}</div>
+        </div>
+    `).join('');
+    
+    // 更新组信息
+    groupInfo.textContent = `第${currentGroupIndex + 1}组 / 共8组`;
+    
+    // 添加卦项点击事件
+    hexagramList.querySelectorAll('.hexagram-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const hexagramId = parseInt(item.dataset.id);
+            const hexagram = hexagramsData.find(h => h.id === hexagramId);
+            showHexagramDetail(hexagram);
+        });
+    });
+}
+
+// 设置分组按钮事件
+function setupGroupButtons() {
+    // 顺序分组按钮
+    orderGroupButton.addEventListener('click', () => {
+        currentGroupType = 'order';
+        currentGroupIndex = 0;
+        updateGroupButtons();
+        renderHexagramList();
+    });
+    
+    // 八宫分组按钮
+    eightHouseGroupButton.addEventListener('click', () => {
+        currentGroupType = 'eight-house';
+        currentGroupIndex = 0;
+        updateGroupButtons();
+        renderHexagramList();
+    });
+}
+
+// 更新分组按钮状态
+function updateGroupButtons() {
+    // 更新分组按钮的active状态
+    orderGroupButton.classList.remove('active');
+    eightHouseGroupButton.classList.remove('active');
+    if (currentGroupType === 'order') {
+        orderGroupButton.classList.add('active');
+    } else {
+        eightHouseGroupButton.classList.add('active');
+    }
+}
+
+// 设置分页按钮事件
+function setupPagination() {
+    // 上一组按钮
+    prevGroupButton.addEventListener('click', () => {
+        if (currentGroupIndex > 0) {
+            currentGroupIndex--;
+            renderHexagramList();
+        }
+    });
+    
+    // 下一组按钮
+    nextGroupButton.addEventListener('click', () => {
+        if (currentGroupIndex < 7) {
+            currentGroupIndex++;
+            renderHexagramList();
+        }
+    });
+}
+
+// 页面切换事件
+if (goLearnButton) {
+    goLearnButton.addEventListener('click', () => {
+        document.querySelector('.game-container').style.display = 'none';
+        learnPage.style.display = 'block';
+        initLearnPage();
+    });
+}
+
+if (backToGameButton) {
+    backToGameButton.addEventListener('click', () => {
+        learnPage.style.display = 'none';
+        document.querySelector('.game-container').style.display = 'block';
+    });
+}
+
+// 修改关闭详情模态框逻辑，适应学习页面
+const originalCloseDetail = closeDetailAndContinueGame;
+closeDetailAndContinueGame = function() {
+    hexagramDetailModal.style.display = 'none';
+    
+    // 如果当前显示的是学习页面，不重新渲染游戏板
+    if (learnPage.style.display === 'none') {
+        // 如果还有剩余卦象，重新渲染游戏板
+        if (gameState.remainingHexagrams.length > 0) {
+            renderGameBoard();
+        } else {
+            // 游戏结束
+            endGame();
+        }
+    }
+};
