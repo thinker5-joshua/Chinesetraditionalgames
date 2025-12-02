@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜根潭摘录 - Vegetable Root Sayings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航 -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">菜根潭摘录</h1>
+                <p class="app-subtitle">Vegetable Root Sayings</p>
+            </div>
+        </header>
+
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <!-- 名言卡片容器 -->
+            <div class="quote-container" id="quoteContainer">
+                <div class="quote-card" id="quoteCard">
+                    <div class="quote-content">
+                        <div class="quote-text" id="quoteText">
+                            <!-- 名言内容将动态加载 -->
+                        </div>
+                        <div class="quote-source" id="quoteSource">
+                            <!-- 出处将动态加载 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 原文展示区域 -->
+                    <div class="original-text" id="originalText" style="display: none;">
+                        <div class="original-header">
+                            <span class="original-title">原文段落</span>
+                            <button class="close-btn" id="closeBtn">×</button>
+                        </div>
+                        <div class="original-content" id="originalContent">
+                            <!-- 原文内容将动态加载 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 导航控制 -->
+            <div class="navigation-controls">
+                <button class="nav-btn prev-btn" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                    上一句
+                </button>
+                
+                <!-- 操作按钮区域 -->
+                <div class="action-buttons">
+                    <button class="action-btn favorite-btn" id="favoriteBtn" title="收藏">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </button>
+                    <button class="action-btn favorites-list-btn" id="favoritesListBtn" title="查看收藏">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                    </button>
+                    <button class="action-btn share-btn" id="shareBtn" title="分享">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                            <polyline points="16 6 12 2 8 6"/>
+                            <line x1="12" y1="2" x2="12" y2="15"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <button class="nav-btn next-btn" id="nextBtn">
+                    下一句
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </main>
+
+        <!-- 底部信息 -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>《菜根谭》明代洪应明著 · 中国传统文化经典</p>
+                <p class="footer-hint">点击摘录查看原文段落</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 加载动画 -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>正在加载智慧箴言...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

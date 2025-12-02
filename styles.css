@@ -1,0 +1,230 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', 'SimSun', sans-serif;
+    background-color: #f5f1e9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 0;
+    background: linear-gradient(135deg, #8b4513 0%, #cd853f 100%);
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 游戏卡片容器 */
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* 游戏卡片样式 */
+.game-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.game-card.coming-soon {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+.game-card.coming-soon:hover {
+    transform: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 游戏图标 */
+.game-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #a67c52 0%, #8b5a2b 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-card.coming-soon .game-icon {
+    background: #ccc;
+}
+
+.poetry-icon {
+    background-color: #FFD700;
+}
+.poetry-icon span {
+    color: #8B4513;
+}
+.family-icon {
+    background-color: #FF6B6B;
+}
+.family-icon span {
+    color: #FFFFFF;
+}
+
+/* 游戏标题和描述 */
+.game-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #8b4513;
+}
+
+.game-card p {
+    color: #666;
+    margin-bottom: 20px;
+    min-height: 60px;
+}
+
+/* 播放按钮 */
+.play-button {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-family: inherit;
+    margin-top: 10px;
+}
+
+.play-button:hover {
+    background-color: #6b340f;
+}
+
+.play-button:active {
+    transform: scale(0.98);
+}
+
+/* 即将推出标签 */
+.coming-soon-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ff9800;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transform: rotate(5deg);
+}
+
+/* 关于我们部分 */
+.about-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+    color: #8b4513;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.about-section p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
+    
+    .games-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 20px 0;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .game-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    .game-card h2 {
+        font-size: 1.3rem;
+    }
+}

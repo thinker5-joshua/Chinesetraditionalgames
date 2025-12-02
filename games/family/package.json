@@ -1,0 +1,19 @@
+{
+  "name": "family-relation-game",
+  "version": "1.0.0",
+  "description": "家庭称呼学习游戏 - 为小朋友设计的了解家庭亲戚称呼的教育游戏",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8004",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "education",
+    "family",
+    "relations",
+    "children-game",
+    "chinese-culture"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二十八星宿探秘</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 游戏标题和介绍 -->
+        <header class="game-header">
+            <h1 class="game-title">二十八星宿探秘</h1>
+            <p class="game-description">在中国古代天文学中，二十八宿是天空中的重要星群。每一方位有七宿，分别由四大神兽守护。探索星象图，找出隐藏的星宿，并将它们归类到正确的方位！</p>
+        </header>
+        
+        <!-- 进度区域 -->
+        <div class="progress-container">
+            <h2 class="section-title">收集进度</h2>
+            <div class="direction-progress">
+                <!-- 东方青龙 -->
+                <div class="direction-card" id="east-progress">
+                    <div class="direction-header">
+                        <h3>东方青龙</h3>
+                        <div class="direction-symbol dragon"></div>
+                    </div>
+                    <div class="progress-bar"><div class="progress" id="east-bar" style="width: 85.7%"></div></div>
+                    <span class="progress-text">6/7</span>
+                    <div class="star-names-list" id="east-names"></div>
+                </div>
+                
+                <!-- 南方朱雀 -->
+                <div class="direction-card" id="south-progress">
+                    <div class="direction-header">
+                        <h3>南方朱雀</h3>
+                        <div class="direction-symbol phoenix"></div>
+                    </div>
+                    <div class="progress-bar"><div class="progress" id="south-bar" style="width: 85.7%"></div></div>
+                    <span class="progress-text">6/7</span>
+                    <div class="star-names-list" id="south-names"></div>
+                </div>
+                
+                <!-- 西方白虎 -->
+                <div class="direction-card" id="west-progress">
+                    <div class="direction-header">
+                        <h3>西方白虎</h3>
+                        <div class="direction-symbol tiger"></div>
+                    </div>
+                    <div class="progress-bar"><div class="progress" id="west-bar" style="width: 85.7%"></div></div>
+                    <span class="progress-text">6/7</span>
+                    <div class="star-names-list" id="west-names"></div>
+                </div>
+                
+                <!-- 北方玄武 -->
+                <div class="direction-card" id="north-progress">
+                    <div class="direction-header">
+                        <h3>北方玄武</h3>
+                        <div class="direction-symbol turtle"></div>
+                    </div>
+                    <div class="progress-bar"><div class="progress" id="north-bar" style="width: 85.7%"></div></div>
+                    <span class="progress-text">6/7</span>
+                    <div class="star-names-list" id="north-names"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 星象图容器 -->
+        <div class="stars-container">
+            <!-- 背景星空效果 -->
+            <div class="starry-background"></div>
+            
+            <!-- 星象图将通过JavaScript动态生成 -->
+        </div>
+        
+        <!-- 星宿详情面板 -->
+        <div id="star-info" class="star-info">
+            <div class="info-header">
+                <h2 id="star-name">选择一个星宿</h2>
+                <button id="close-info" class="close-btn">×</button>
+            </div>
+            <div class="info-content">
+                <div id="star-description">点击星象图中的星宿以查看详细信息</div>
+                
+                <!-- 方位选择器 -->
+                <div class="direction-selector">
+                    <h3>这是哪个方位的星宿？</h3>
+                    <div class="directions">
+                        <button class="direction-btn" data-direction="east">
+                            <span class="direction-icon dragon-icon">🐉</span>
+                            <span>东方青龙</span>
+                        </button>
+                        <button class="direction-btn" data-direction="south">
+                            <span class="direction-icon phoenix-icon">🦅</span>
+                            <span>南方朱雀</span>
+                        </button>
+                        <button class="direction-btn" data-direction="west">
+                            <span class="direction-icon tiger-icon">🐅</span>
+                            <span>西方白虎</span>
+                        </button>
+                        <button class="direction-btn" data-direction="north">
+                            <span class="direction-icon turtle-icon">🐢</span>
+                            <span>北方玄武</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 成功提示模态框 -->
+        <div id="success-modal" class="modal">
+            <div class="modal-content">
+                <h2 id="modal-title">恭喜！</h2>
+                <p id="modal-message">你完成了一个方位的收集！</p>
+                <button id="modal-close" class="modal-btn">继续探索</button>
+            </div>
+        </div>
+        
+        <!-- 最终成功模态框 -->
+        <div id="final-success" class="modal">
+            <div class="modal-content">
+                <h2 class="final-title">太棒了！</h2>
+                <div class="four-beasts">
+                    <div class="beast-icon dragon-beast">🐉</div>
+                    <div class="beast-icon phoenix-beast">🦅</div>
+                    <div class="beast-icon tiger-beast">🐅</div>
+                    <div class="beast-icon turtle-beast">🐢</div>
+                </div>
+                <p class="final-message">你已经成功收集了所有二十八星宿！四神兽为你庆祝！</p>
+                <div class="four-beasts-rhyme">
+                    <p>东方青龙 角亢氐房心尾箕</p>
+                    <p>南方朱雀 井鬼柳星张翼轸</p>
+                    <p>西方白虎 奎娄胃昴毕觜参</p>
+                    <p>北方玄武 斗牛女虚危室壁</p>
+                </div>
+                <button id="final-close" class="modal-btn">重新开始</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "28stars",
+  "version": "1.0.0",
+  "description": "二十八星宿探秘 - 一款关于中国古代天文学中二十八星宿的教育类小游戏",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8003",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "中国传统文化",
+    "二十八星宿",
+    "天文学",
+    "教育游戏",
+    "益智游戏"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {}
+}

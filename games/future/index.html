@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成语消除 - 二字组合小游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="game-header">
+            <h1 class="game-title">成语消除 - 二字组合小游戏</h1>
+            <p class="game-description">欢迎来到成语消除游戏！将四字成语拆分为两字一组，找出正确的配对组合，完成所有成语配对即可获胜。根据完成情况获得星级评价。快来挑战你的成语知识吧！</p>
+        </header>
+        
+        <div class="game-info">
+            <div class="progress-container">
+                <div class="progress-label">游戏进度</div>
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="progress-text"><span id="progress-count">0</span></div>
+            </div>
+            <div class="stars-container">
+                <div class="star" id="star1">★</div>
+                <div class="star" id="star2">★</div>
+                <div class="star" id="star3">★</div>
+                <div class="star" id="star4">★</div>
+                <div class="star" id="star5">★</div>
+            </div>
+        </div>
+        
+        <div class="game-board" id="game-board">
+            <!-- 字块将通过JavaScript动态生成 -->
+        </div>
+        
+        <div class="selected-words" id="selected-words">
+            <div class="selected-label">已选择:</div>
+            <div class="selected-content"></div>
+        </div>
+    </div>
+    
+    <!-- 游戏成功模态框 -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🏮 恭喜通关！</h2>
+            </div>
+            <div class="modal-body">
+                <p>🎉 太棒了！您成功匹配了所有成语！</p>
+                <div class="final-stats">
+                    <p>恭喜你获得了优秀的成绩！</p>
+                    <p class="final-stars">最终评级：<span id="final-stars-display">★★★★★</span></p>
+                </div>
+                <p>欢迎再玩一局，挑战更多成语知识！</p>
+            </div>
+            <div class="modal-footer">
+                <button id="play-again-btn">再玩一次</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 匹配成功提示 -->
+    <div class="match-toast" id="match-toast">
+        <span class="match-icon">✓</span>
+        <span>匹配成功！</span>
+    </div>
+    
+    <!-- 匹配失败提示 -->
+    <div class="mismatch-toast" id="mismatch-toast">
+        <span class="mismatch-icon">✗</span>
+        <span>匹配失败！</span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

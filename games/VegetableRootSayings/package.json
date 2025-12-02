@@ -1,0 +1,24 @@
+{
+  "name": "vegetable-root-sayings",
+  "version": "1.0.0",
+  "description": "菜根潭摘录 - 中国传统文化智慧箴言学习游戏",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -p 3000",
+    "build": "echo '静态网站无需构建'",
+    "start": "npx serve -s -p 3000"
+  },
+  "keywords": [
+    "菜根谭",
+    "传统文化",
+    "国学",
+    "智慧箴言",
+    "互动学习"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}

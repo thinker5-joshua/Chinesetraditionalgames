@@ -1,0 +1,17 @@
+{
+  "name": "chinese-traditional-games",
+  "version": "1.0.0",
+  "description": "中国传统文化益智游戏群落 - 集合多个中国传统文化主题的益智游戏",
+  "main": "script.js",
+  "scripts": {
+    "dev": "echo '请使用浏览器直接打开index.html文件'",
+    "start": "echo '请使用浏览器直接打开index.html文件'",
+    "build": "echo '项目为纯静态网站，无需构建'"
+  },
+  "keywords": ["中国传统文化", "益智游戏", "教育游戏", "文化传承", "学习平台"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.48.0"
+  }
+}

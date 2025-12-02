@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>64Hexagrams - 易经六十四卦记忆学习游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>64Hexagrams</h1>
+            <p>易经六十四卦记忆学习游戏</p>
+        </header>
+        
+        <div class="game-container">
+            <div class="score-board">
+                <div class="progress">
+                    <span>进度: <span id="progress-text">0/3</span></span>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="success-count">
+                    <span>已完成: <span id="success-count-text">0</span></span>
+                </div>
+            </div>
+            
+            <div id="game-board" class="game-board">
+                <!-- 游戏方块将通过JavaScript动态生成 -->
+            </div>
+            
+            <div class="selected-info">
+                <p>已选择: <span id="selected-display">未选择</span></p>
+            </div>
+        </div>
+        
+        <div id="success-modal" class="modal">
+            <div class="modal-content">
+                <h2>恭喜您！</h2>
+                <p class="success-message">您已成功匹配所有三组卦象！</p>
+                <div class="hexagram-info">
+                    <h3>本次游戏的卦象详情</h3>
+                    <div id="last-hexagram-info" class="last-hexagram-info">
+                        <!-- 最后完成的卦象信息将在这里显示 -->
+                    </div>
+                </div>
+                <button id="play-again" class="play-again-button">再玩一次</button>
+            </div>
+        </div>
+        
+        <div id="hexagram-detail-modal" class="modal">
+            <div class="modal-content detail-modal">
+                <div class="modal-header">
+                    <h2 id="detail-title">卦象详情</h2>
+                    <button id="close-detail" class="close-button">返回</button>
+                </div>
+                <div id="hexagram-detail-content" class="hexagram-detail-content">
+                    <!-- 卦象详情将在这里显示 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

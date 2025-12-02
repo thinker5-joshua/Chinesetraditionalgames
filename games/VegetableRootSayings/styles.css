@@ -1,0 +1,475 @@
+/* 菜根潭摘录游戏样式 - 参考西窗烛APP风格 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Serif SC', serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 顶部导航 */
+.app-header {
+    background: linear-gradient(135deg, #8a7367 0%, #6d5c54 100%);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.app-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* 主内容区域 */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 名言卡片容器 */
+.quote-container {
+    width: 100%;
+    perspective: 1000px;
+    margin-bottom: 3rem;
+}
+
+.quote-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 1px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.15),
+        0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.quote-card:active {
+    transform: translateY(-2px);
+}
+
+/* 名言内容 */
+.quote-content {
+    text-align: center;
+}
+
+.quote-text {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    letter-spacing: 1px;
+}
+
+.quote-source {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    font-style: italic;
+    border-top: 1px solid #ecf0f1;
+    padding-top: 1rem;
+    display: inline-block;
+}
+
+/* 原文展示区域 */
+.original-text {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 0;
+    margin-top: 2rem;
+    border-left: 4px solid #8a7367;
+}
+
+.original-header {
+    background: #8a7367;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.original-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.original-content {
+    padding: 2rem 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+/* 导航控制 */
+.navigation-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    gap: 1rem;
+}
+
+.nav-btn {
+    background: #8a7367;
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(138, 115, 103, 0.3);
+}
+
+.nav-btn:hover {
+    background: #6d5c54;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 115, 103, 0.4);
+}
+
+.nav-btn:active {
+    transform: translateY(0);
+}
+
+.nav-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 操作按钮 */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: white;
+    border: 2px solid #8a7367;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #8a7367;
+}
+
+.action-btn:hover {
+    background: #8a7367;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(138, 115, 103, 0.3);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+.action-btn.favorited {
+    background: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+}
+
+.action-btn.favorited:hover {
+    background: #c0392b;
+    border-color: #c0392b;
+}
+
+/* 底部信息 */
+.app-footer {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-top: 1px solid #ecf0f1;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+    color: #7f8c8d;
+}
+
+.footer-hint {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* 加载动画 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading-spinner {
+    text-align: center;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #8a7367;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* 按钮悬停动画增强 */
+.action-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(138, 115, 103, 0.4);
+}
+
+.action-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* 查看收藏按钮特殊样式 */
+.action-btn.favorites-list-btn:hover {
+    background: #3498db;
+    border-color: #3498db;
+    color: white;
+}
+
+/* 卡片悬停动画增强 */
+.quote-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* 加载动画增强 */
+.loading-spinner p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .app-title {
+        font-size: 2rem;
+    }
+    
+    .quote-text {
+        font-size: 1.5rem;
+    }
+    
+    .quote-card {
+        padding: 2rem 1.5rem;
+        min-height: 300px;
+    }
+    
+    .navigation-controls {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .action-buttons {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+    
+    .action-buttons {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .quote-text {
+        font-size: 1.3rem;
+    }
+    
+    .quote-card {
+        padding: 1.5rem 1rem;
+        min-height: 250px;
+        border-radius: 15px;
+    }
+    
+    .app-header {
+        padding: 1.5rem 1rem;
+    }
+    
+    .action-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* 夜间模式支持 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: #ecf0f1;
+    }
+    
+    .quote-card {
+        background: #34495e;
+        color: #ecf0f1;
+    }
+    
+    .quote-text {
+        color: #ecf0f1;
+    }
+    
+    .quote-source {
+        color: #bdc3c7;
+        border-top-color: #4a5f7a;
+    }
+    
+    .nav-btn {
+        background: #4a5f7a;
+    }
+    
+    .nav-btn:hover {
+        background: #5d7592;
+    }
+    
+    .action-btn {
+        background: #34495e;
+        border-color: #4a5f7a;
+        color: #ecf0f1;
+    }
+    
+    .action-btn:hover {
+        background: #4a5f7a;
+        color: white;
+    }
+}
+
+/* 无障碍支持 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .quote-card {
+        transform: none !important;
+    }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+    .quote-card {
+        border: 2px solid #000;
+    }
+    
+    .nav-btn {
+        border: 2px solid #000;
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "64hexagrams",
+  "version": "1.0.0",
+  "description": "易经六十四卦记忆学习游戏",
+  "main": "script.js",
+  "scripts": {
+    "dev": "echo '请使用浏览器直接打开index.html文件'",
+    "start": "echo '请使用浏览器直接打开index.html文件'",
+    "build": "echo '项目为纯静态网站，无需构建'"
+  },
+  "keywords": ["易经", "六十四卦", "记忆游戏", "学习工具"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.48.0"
+  }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七十二幻境诗意旅行</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 高德地图API -->
+    <script src="https://webapi.amap.com/maps?v=2.0&key=80151a99ee4a87f5a545f1a3639bb4f5"></script>
+    <style>
+        /* 基础内联样式，确保初始显示正常 */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            width: 100vw;
+            overflow: auto;
+            position: relative;
+            background-color: #0a0a2a;
+            color: #fff;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        /* 确保视图默认隐藏，除了激活的视图 */
+        .game-view {
+            display: none;
+        }
+        
+        .game-view.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 星空背景 -->
+    <div id="stars"></div>
+    
+    <!-- 游戏容器 -->
+    <div id="game-container">
+        <!-- 标题区域 -->
+        <header class="game-header">
+            <div class="title-glow-container">
+                <h1 class="game-title">七十二幻境诗意旅行</h1>
+            </div>
+            <p class="game-subtitle">穿越诗词，探索中国最美的72处胜地</p>
+        </header>
+        
+        <!-- 主要游戏区域 -->
+        <main id="game-main">
+            <!-- 仙界地图选择界面 -->
+            <section id="compass-view" class="game-view active">
+                <!-- 仙界地图容器 -->
+                <div class="immortal-map-container" style="position: relative; display: block; opacity: 1; visibility: visible;">
+            <div class="immortal-map" style="position: relative; display: block; opacity: 1; visibility: visible;">
+                <!-- 洞天体容器 -->
+                <div id="caves-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; visibility: visible; z-index: 1000;"></div>
+                
+                <!-- 仙界任意门 -->
+                <button id="start-map" class="btn-primary fairy-door" style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); z-index: 1001;">仙界任意门</button>
+            </div>
+        </div>
+            </section>
+            
+            <!-- 诗词挑战界面 -->
+            <section id="poetry-challenge-view" class="game-view">
+                <div class="challenge-container">
+                    <!-- 洞天提示 -->
+                    <div class="cave-prompt"></div>
+                    
+                    <div class="poem-content-container">
+                        <div id="poem-question" class="poem-display">
+                            <h2 class="poem-title"></h2>
+                            <div class="poet-info"></div>
+                            <div class="poem-content"></div>
+                        </div>
+                        
+                        <div class="challenge-section">
+                            <div class="word-challenge">
+                                <h3>请选择缺失的字</h3>
+                                <div id="answer-options" class="options-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 挑战控制按钮已移除 -->
+                </div>
+            </section>
+            
+            <!-- 罗盘视图 -->
+            <div id="compass" class="game-view">
+                <!-- 罗盘内容将由JavaScript动态生成 -->
+            </div>
+            
+            <!-- 洞天展示界面 -->
+            <section id="cave-view" class="game-view">
+                <div class="cave-container">
+                    <!-- 洞天信息区域 -->
+                    <div id="cave-info">
+                        <!-- 标题行 -->
+                        <div class="cave-header">
+                            <h2 class="cave-name"></h2>
+                            <p class="cave-location"></p>
+                        </div>
+                        
+                        <!-- 第一部分：洞天简介 -->
+                        <div class="cave-section cave-intro">
+                            <h3>洞天简介</h3>
+                            <p class="cave-description"></p>
+                        </div>
+                        
+                        <!-- 第二部分：洞天地图 -->
+                        <div class="cave-section cave-map-section">
+                            <h3>洞天地图</h3>
+                            <div id="cave-map-container" class="cave-map-container">
+                                <!-- 高德地图将通过JavaScript加载 -->
+                            </div>
+                        </div>
+                        
+                        <!-- 第三部分：洞天关联诗词 -->
+                        <div class="cave-section cave-poem-section">
+                            <h3>相关诗词</h3>
+                            <div id="poem-container">
+                                <div class="poem-header-info">
+                                    <div class="poem-main-info">
+                                        <h4 id="poem-title">诗词标题</h4>
+                                        <p id="poem-author">—— 诗人</p>
+                                    </div>
+                                    <div class="poem-sidebar">
+                                        <p id="poem-explanation">诗词解释将在这里显示</p>
+                                        <button id="next-poem" class="next-poem-btn">下一首</button>
+                                    </div>
+                                </div>
+                                <div id="poem-content">
+                                    <div>诗词内容将在这里显示</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 底部按钮 -->
+                        <div class="cave-footer">
+                            <button id="next-dreamland" class="btn-secondary centered-btn">探索下一幻境</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- 游戏页脚 -->
+    <footer class="game-footer">
+        <p>© 2023 七十二幻境诗意旅行 | 基于中国传统诗词文化与旅游胜地</p>
+    </footer>
+    
+    <!-- 模态框 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    
+    <!-- 成功提示弹窗 -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <h2>恭喜！</h2>
+            <p>您已成功通过诗词挑战，可以进入洞天欣赏美景了。</p>
+            <button id="enter-cave" class="btn-primary">进入洞天</button>
+        </div>
+    </div>
+
+    <!-- 错误提示弹窗 -->
+    <div id="error-modal" class="modal">
+        <div class="modal-content">
+            <h2>答题有误</h2>
+            <p>请再仔细思考一下，或者点击提示按钮获取帮助。</p>
+            <button id="close-error" class="btn-primary">继续答题</button>
+        </div>
+    </div>
+
+    <!-- 引入脚本 -->
+    <script src="script.js"></script>
+</body>
+</html>

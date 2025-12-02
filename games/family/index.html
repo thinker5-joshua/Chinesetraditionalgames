@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家庭称呼学习游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 游戏标题 -->
+        <header class="game-header">
+            <h1>家庭称呼学习游戏</h1>
+            <p class="subtitle">让我们一起探索奇妙的家庭关系！</p>
+        </header>
+
+        <!-- 主菜单 -->
+        <nav class="main-menu">
+            <button class="menu-btn" id="family-tree-btn">
+                <div class="btn-icon tree-icon"></div>
+                <span>我的家谱</span>
+            </button>
+            <button class="menu-btn" id="quiz-btn">
+                <div class="btn-icon quiz-icon"></div>
+                <span>去考试</span>
+            </button>
+            <button class="menu-btn" id="glossary-btn">
+                <div class="btn-icon book-icon"></div>
+                <span>查词典</span>
+            </button>
+            <button class="menu-btn" id="achievements-btn">
+                <div class="btn-icon medal-icon"></div>
+                <span>我的奖章</span>
+            </button>
+        </nav>
+
+        <!-- 游戏内容区域 -->
+        <main class="game-content">
+            <!-- 家族树页面 -->
+            <section id="family-tree" class="game-section">
+                <div class="section-header">
+                    <h2>我的家谱</h2>
+                    <button class="back-btn">返回</button>
+                </div>
+                <div class="tree-container">
+                    <div class="tree-placeholder">
+                        <p>拖拽下方的角色到树上相应的位置</p>
+                    </div>
+                    <div class="tree-draggable-area">
+                        <!-- 家族树显示区域 -->
+                        <div class="tree-node me-node">我</div>
+                        <div class="tree-level parents-level">
+                            <div class="tree-node" data-role="father">爸爸</div>
+                            <div class="tree-node" data-role="mother">妈妈</div>
+                        </div>
+                        <div class="tree-level grandparents-level">
+                            <div class="tree-node" data-role="grandpa_paternal">爷爷</div>
+                            <div class="tree-node" data-role="grandma_paternal">奶奶</div>
+                            <div class="tree-node" data-role="grandpa_maternal">外公</div>
+                            <div class="tree-node" data-role="grandma_maternal">外婆</div>
+                        </div>
+                        <div class="tree-level uncles-aunts-level">
+                            <div class="tree-node" data-role="uncle_paternal">叔叔</div>
+                            <div class="tree-node" data-role="aunt_paternal">姑姑</div>
+                            <div class="tree-node" data-role="uncle_maternal">舅舅</div>
+                            <div class="tree-node" data-role="aunt_maternal">姨姨</div>
+                        </div>
+                    </div>
+                    <div class="family-members">
+                        <p class="section-title">家庭成员</p>
+                        <div class="members-container">
+                            <div class="member-card" draggable="true" data-role="father">
+                                <div class="member-icon father-icon"></div>
+                                <span>爸爸</span>
+                            </div>
+                            <div class="member-card" draggable="true" data-role="mother">
+                                <div class="member-icon mother-icon"></div>
+                                <span>妈妈</span>
+                            </div>
+                            <div class="member-card" draggable="true" data-role="grandpa_paternal">
+                                <div class="member-icon grandpa-icon"></div>
+                                <span>爷爷</span>
+                            </div>
+                            <div class="member-card" draggable="true" data-role="grandma_paternal">
+                                <div class="member-icon grandma-icon"></div>
+                                <span>奶奶</span>
+                            </div>
+                            <div class="member-card" draggable="true" data-role="grandpa_maternal">
+                                <div class="member-icon grandpa-icon"></div>
+                                <span>外公</span>
+                            </div>
+                            <div class="member-card" draggable="true" data-role="grandma_maternal">
+                                <div class="member-icon grandma-icon"></div>
+                                <span>外婆</span>
+                            </div>
+                            <div class="member-card" draggable="true" data-role="uncle_paternal">
+                                <div class="member-icon uncle-icon"></div>
+                                <span>叔叔</span>
+                            </div>
+                            <div class="member-card" draggable="true" data-role="aunt_paternal">
+                                <div class="member-icon aunt-icon"></div>
+                                <span>姑姑</span>
+                            </div>
+                            <div class="member-card" draggable="true" data-role="uncle_maternal">
+                                <div class="member-icon uncle-icon"></div>
+                                <span>舅舅</span>
+                            </div>
+                            <div class="member-card" draggable="true" data-role="aunt_maternal">
+                                <div class="member-icon aunt-icon"></div>
+                                <span>姨姨</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 测验页面 -->
+            <section id="quiz" class="game-section">
+                <div class="section-header">
+                    <h2>情景小测验</h2>
+                    <button class="back-btn">返回</button>
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">问题 1/5</span>
+                    </div>
+                    <div class="quiz-question">
+                        <p>今天去奶奶家，看到一个和你爸爸年纪相仿的叔叔，他会是你爸爸的弟弟，你应该怎么称呼他？</p>
+                    </div>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-answer="A">A. 叔叔</button>
+                        <button class="quiz-option" data-answer="B">B. 伯伯</button>
+                        <button class="quiz-option" data-answer="C">C. 舅舅</button>
+                    </div>
+                    <div class="quiz-feedback">
+                        <!-- 反馈信息将在这里显示 -->
+                    </div>
+                    <button class="next-btn">下一题</button>
+                </div>
+            </section>
+
+            <!-- 词典页面 -->
+            <section id="glossary" class="game-section">
+                <div class="section-header">
+                    <h2>称呼词典</h2>
+                    <button class="back-btn">返回</button>
+                </div>
+                <div class="glossary-container">
+                    <div class="glossary-tabs">
+                        <button class="tab-btn active" data-tab="paternal">爸爸这边</button>
+                        <button class="tab-btn" data-tab="maternal">妈妈这边</button>
+                        <button class="tab-btn" data-tab="peer">平辈</button>
+                    </div>
+                    <div class="glossary-content">
+                        <div class="tab-content active" id="paternal-content">
+                            <div class="glossary-item">
+                                <div class="term-header">
+                                    <h3>爷爷</h3>
+                                    <button class="pronounce-btn">🔊</button>
+                                </div>
+                                <p class="term-description">爸爸的爸爸</p>
+                                <div class="term-image"></div>
+                            </div>
+                            <div class="glossary-item">
+                                <div class="term-header">
+                                    <h3>奶奶</h3>
+                                    <button class="pronounce-btn">🔊</button>
+                                </div>
+                                <p class="term-description">爸爸的妈妈</p>
+                                <div class="term-image"></div>
+                            </div>
+                            <div class="glossary-item">
+                                <div class="term-header">
+                                    <h3>叔叔</h3>
+                                    <button class="pronounce-btn">🔊</button>
+                                </div>
+                                <p class="term-description">爸爸的弟弟</p>
+                                <div class="term-image"></div>
+                            </div>
+                            <div class="glossary-item">
+                                <div class="term-header">
+                                    <h3>姑姑</h3>
+                                    <button class="pronounce-btn">🔊</button>
+                                </div>
+                                <p class="term-description">爸爸的妹妹</p>
+                                <div class="term-image"></div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="maternal-content">
+                            <!-- 妈妈这边的称呼 -->
+                        </div>
+                        <div class="tab-content" id="peer-content">
+                            <!-- 平辈的称呼 -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 成就页面 -->
+            <section id="achievements" class="game-section">
+                <div class="section-header">
+                    <h2>我的奖章</h2>
+                    <button class="back-btn">返回</button>
+                </div>
+                <div class="achievements-container">
+                    <div class="achievement-grid">
+                        <div class="achievement-card unlocked">
+                            <div class="achievement-icon star-icon"></div>
+                            <h3>初学者</h3>
+                            <p>完成第一次家族树构建</p>
+                        </div>
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon locked-icon"></div>
+                            <h3>小老师</h3>
+                            <p>完成10次测验</p>
+                        </div>
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon locked-icon"></div>
+                            <h3>称呼大师</h3>
+                            <p>测验连续答对20题</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 角色信息弹窗 -->
+            <div class="character-modal" id="character-modal">
+                <div class="modal-content">
+                    <h3>角色信息</h3>
+                    <div class="character-info">
+                        <div class="character-icon-large"></div>
+                        <p class="character-name">爷爷</p>
+                        <p class="character-relation">爸爸的爸爸</p>
+                        <input type="text" class="character-nickname" placeholder="输入昵称（可选）">
+                    </div>
+                    <button class="close-modal-btn">确定</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
