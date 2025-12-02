@@ -631,14 +631,52 @@ header p {
     letter-spacing: 5px;
 }
 
-/* 去学卦按钮样式 */
-.learn-button-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 100;
+/* 游戏介绍区域样式 */
+.game-intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(211, 199, 167, 0.2);
+    border: 2px solid #b8a57e;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
+.intro-text {
+    font-size: 1.1rem;
+    color: #6d4c41;
+    font-weight: bold;
+    margin: 0;
+    flex: 1;
+    max-width: 600px;
+}
+
+.learn-button-large {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: "SimSun", "STSong", serif;
+    min-width: 150px;
+}
+
+.learn-button-large:hover {
+    background-color: #cd853f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 小尺寸学习按钮样式（用于其他场景） */
 .learn-button {
     padding: 12px 24px;
     font-size: 16px;
@@ -839,6 +877,24 @@ header p {
 
 /* 响应式调整 */
 @media (max-width: 768px) {
+    /* 游戏介绍区域响应式 */
+    .game-intro {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .intro-text {
+        font-size: 1rem;
+    }
+    
+    .learn-button-large {
+        padding: 12px 24px;
+        font-size: 1.1rem;
+        min-width: 120px;
+    }
+    
+    /* 学习页面响应式 */
     .learn-page {
         padding: 15px;
     }
