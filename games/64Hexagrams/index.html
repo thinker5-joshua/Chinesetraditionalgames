@@ -69,26 +69,50 @@
         <!-- 卦列表页 -->
         <div id="learn-page" class="page learn-page" style="display: none;">
             <div class="page-header">
-                <h2>64卦学习</h2>
+                <h2>六十四卦学习</h2>
                 <button id="back-to-game" class="back-button">返回游戏</button>
             </div>
             
-            <!-- 分组选择 -->
-            <div class="group-selector">
-                <label>分组方式：</label>
+            <!-- 浏览模式和分组模式合并到一行 -->
+            <div class="combined-selector">
+                <label>浏览模式：</label>
+                <button id="random-mode" class="group-button active">随机翻阅</button>
+                <button id="group-mode" class="group-button">分组查看</button>
+                
+                <label style="margin-left: 20px;">分组方式：</label>
                 <button id="order-group" class="group-button active">顺序</button>
                 <button id="eight-house-group" class="group-button">八宫</button>
             </div>
             
             <!-- 卦列表 -->
-            <div class="hexagram-list-container">
+            <div id="group-view" class="hexagram-list-container">
                 <div id="hexagram-list" class="hexagram-list">
                     <!-- 卦项将动态生成 -->
                 </div>
             </div>
             
+            <!-- 随机翻阅视图 -->
+            <div id="random-view" class="random-view" style="display: none;">
+                <div class="random-hexagram-card">
+                    <div class="random-hexagram-id-small" id="random-hexagram-id-small"></div>
+                    <div id="random-hexagram-symbol" class="random-hexagram-symbol" style="font-size: 4rem;"></div>
+                    <div class="random-hexagram-name-row">
+                        <div id="random-hexagram-name" class="random-hexagram-name"></div>
+                        <div id="random-hexagram-pinyin" class="random-hexagram-pinyin"></div>
+                    </div>
+                    <div id="random-hexagram-alias" class="random-hexagram-alias"></div>
+                    <div id="random-hexagram-text" class="random-hexagram-text"></div>
+                    <div id="random-hexagram-id" class="random-hexagram-id" style="display: none;"></div>
+                </div>
+                
+                <div class="random-navigation">
+                    <button id="prev-random" class="page-button">上一个</button>
+                    <button id="next-random" class="page-button">下一个</button>
+                </div>
+            </div>
+            
             <!-- 翻页控件 -->
-            <div class="pagination">
+            <div id="group-pagination" class="pagination">
                 <button id="prev-group" class="page-button">上一组</button>
                 <span id="group-info" class="group-info">第1组 / 共8组</span>
                 <button id="next-group" class="page-button">下一组</button>
